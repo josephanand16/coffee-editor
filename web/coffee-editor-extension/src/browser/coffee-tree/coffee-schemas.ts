@@ -219,6 +219,27 @@ export const manualTaskView = {
   ]
 };
 
+export const customComponentView = {
+  'type': 'VerticalLayout',
+  'elements': [
+    {
+      'type': 'Label',
+      'text': 'Custom Component'
+    },
+    {
+      'type': 'Control',
+      'label': 'Custom Component String',
+      'scope': '#/properties/cust_component_data_string',
+      'options': { focus: true }
+    },
+    {
+      'type': 'Control',
+      'label': 'Custom Component Int',
+      'scope': '#/properties/cust_component_data_int'
+    },
+  ]
+};
+
 export const automaticTaskView = {
   'type': 'VerticalLayout',
   'elements': [
@@ -353,6 +374,23 @@ export const coffeeSchema = {
       'properties': {
         'eClass': {
           'const': 'http://www.eclipsesource.com/modelserver/example/coffeemodel#//WaterTank'
+        },
+      },
+      'additionalProperties': false
+    },
+    'custcomponent': {
+      '$id': '#custcomponent',
+      'type': 'object',
+      'title': 'Cust Component',
+      'properties': {
+        'eClass': {
+          'const': 'http://www.eclipsesource.com/modelserver/example/coffeemodel#//CustComponent'
+        },
+        'cust_component_data_string': {
+          'type': 'string'
+        },
+        'cust_component_data_int': {
+          'type': 'integer'
         },
       },
       'additionalProperties': false
