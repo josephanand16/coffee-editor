@@ -38,6 +38,7 @@ export namespace CoffeeModel {
         export const WaterTank = 'http://www.eclipsesource.com/modelserver/example/coffeemodel#//WaterTank';
         export const WeightedFlow = 'http://www.eclipsesource.com/modelserver/example/coffeemodel#//WeightedFlow';
         export const Workflow = 'http://www.eclipsesource.com/modelserver/example/coffeemodel#//Workflow';
+        export const CustComponent = 'http://www.eclipsesource.com/modelserver/example/coffeemodel#//CustComponent';
 
         export function name(type: string): string {
             return new URI(type).fragment.substring(2);
@@ -49,7 +50,8 @@ export namespace CoffeeModel {
         Type.ControlUnit,
         Type.BrewingUnit,
         Type.DipTray,
-        Type.WaterTank
+        Type.WaterTank,
+        Type.CustComponent
     ];
 
     const nodes = [
@@ -106,6 +108,14 @@ export namespace CoffeeModel {
         ],
         [
             Type.WaterTank, [
+                {
+                    property: 'children',
+                    children: components
+                }
+            ]
+        ],
+        [
+            Type.CustComponent, [
                 {
                     property: 'children',
                     children: components
