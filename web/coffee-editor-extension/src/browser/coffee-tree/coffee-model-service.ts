@@ -32,6 +32,7 @@ import {
     waterTankView,
     weightedFlowView,
     workflowView,
+    customComponentView,
 } from './coffee-schemas';
 
 @injectable()
@@ -115,6 +116,8 @@ export class CoffeeModelService implements TreeEditor.ModelService {
                 return decisionView;
             case CoffeeModel.Type.Merge:
                 return mergeView;
+            case CoffeeModel.Type.CustComponent:
+                return customComponentView;
             default:
                 this.logger.warn("Can't find registered ui schema for type " + type);
                 return undefined;
